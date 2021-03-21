@@ -1,29 +1,42 @@
 <html>
 
 <head>
-  <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
+  <link href="https://unpkg.com/video.js@7/dist/video-js.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/@videojs/themes@1/dist/sea/index.css" rel="stylesheet">
+  <link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
+  <script src="https://unpkg.com/video.js@7/dist/video.min.js"></script>
 
-  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
-  <!-- <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
-</head>
+  <!-- UIkit CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/css/uikit.min.css" />
+  
+  <!-- UIkit JS -->
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit-icons.min.js"></script>
+  </head>
 
 <body>
-  <video id="my-video" class="video-js" controls preload="auto" width="1920" height="1080" autoplay>
-    <source src="https://greekhls-lh.akamaihd.net/i/annctnclmbs_oh@79310/master.m3u8" type="application/x-mpegURL" />
-    <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a
-      web browser that
-      <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-    </p>
-  </video>
+  <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+    <video id="my-video" class="video-js vjs-theme-forest">
+      <source src="https://greekhls-lh.akamaihd.net/i/annctnclmbs_oh@79310/master.m3u8" type="application/x-mpegURL" />
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a
+        web browser that
+        <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+      </p>
+    </video>
+  </div>
 
-  <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
   <script>
-      var player = videojs('my-video', {
-        autoplay: 'play',
-        preload: 'auto'
-      });
-    </script>
+    var player = videojs('my-video', {
+      autoplay: true,
+      preload: 'auto',
+      aspectRatio: '16:9',
+      controls: true,
+      liveui: true,
+      responsive: true,
+      poster: 'https://www.greekcathedral.com/wp-content/uploads/2015/03/greek-orthodox-church-columbus-oh.jpg?w=860&ssl=1'
+    })
+  </script>
 </body>
 
 </html>
